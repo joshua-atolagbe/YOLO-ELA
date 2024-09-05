@@ -29,6 +29,7 @@ if __name__ == '__main__':
                         help='model scale type')
     parser.add_argument('--name', nargs='?', type=str, default='yolov8',
                         help='name')
+                        
     args = parser.parse_args()
 
     if args.model_scale == 'gam-small':
@@ -77,7 +78,7 @@ if __name__ == '__main__':
         model = RTDETR(model='https://github.com/ultralytics/assets/releases/download/v8.2.0/rtdetr-x.pt')
 
     model.train(
-        data='/content/drive/My Drive/MSc Project/faulty_insulator/complete_ds_v2.yaml',
+        data='ultralytics/cfg/data.yaml',
         task='detect',
         mode='train',
         name=args.name+'_'+args.model_scale+str(args.epochs)+'aug_'+str(args.aug),
@@ -91,15 +92,15 @@ if __name__ == '__main__':
         val=True,
         augment=args.aug,
         boxes=False,
-        patience=15,
+        patience=50,
         plots=True,
         fliplr= 0.5,
         flipud=0.5,
-        shear=0.5,
-        translate=0.4,
+        #shear=0.5,
+        #translate=0.4,
         mosaic=0.5, #you can modify
         mixup=0.15, #you can modify
         copy_paste=0.3, #you can modify,
-        scale=0.9, #you can modify
+        scale=0.5, #you can modify
     )
 
