@@ -1,0 +1,8 @@
+train: /content/drive/My Drive/insulator_defect/v2/train/images
+val: /content/drive/My Drive/insulator_defect/v2/valid/images
+test: /content/drive/My Drive/insulator_defect/v2/test/images
+test2: /content/drive/My Drive/insulator_defect/v2/test2/images
+
+nc: 1
+names: 
+  0: faulty_insulator
