@@ -37,6 +37,12 @@ if __name__ == '__main__':
        
     elif args.model_scale == 'gam-large':
        model = YOLO('ultralytics/cfg/models/v8/yolov8x_GAM.yaml').load(v8_large)
+       
+    elif args.model_scale == 'cam-small':
+       model = YOLO('ultralytics/cfg/models/v8/yolov8s_CAM.yaml').load(v8_small)
+       
+    elif args.model_scale == 'cam-large':
+       model = YOLO('ultralytics/cfg/models/v8/yolov8x_CAM.yaml').load(v8_large)
     
     elif args.model_scale == 'cbam-small':
         model = YOLO('ultralytics/cfg/models/v8/yolov8s_CBAM.yaml').load(v8_small)
