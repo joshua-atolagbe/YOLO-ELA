@@ -56,6 +56,7 @@ from .block import (
 )
 from .conv import (
     CBAM,
+    MLCA,
     ChannelAttention,
     Concat,
     Conv,
@@ -171,5 +172,6 @@ __all__ = (
     'MHSA',
     'GatherExcite',
     'SqueezeExcitation',
-    'GlobalContext'
+    'GlobalContext',
+    'MLCA'
 )
