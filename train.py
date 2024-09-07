@@ -10,7 +10,7 @@ if torch.cuda.is_available():
     torch.backends.cudnn.deterministic = True
 np.random.seed(random_seed)
 
-v8_small = '/content/drive/My Drive/MSc Project/faulty_insulator/yolov8s_100aug_True/train_val_wo_sahi/weights/best.pt'
+v8_small = 'https://github.com/ultralytics/assets/releases/download/v8.2.0/yolov8s.pt'
 v9 = "https://github.com/ultralytics/assets/releases/download/v8.2.0/yolov9s.pt"
 v10 = "https://github.com/ultralytics/assets/releases/download/v8.2.0/yolov10s.pt"
 
@@ -31,31 +31,31 @@ if __name__ == '__main__':
                         
     args = parser.parse_args()
 
-    if args.model_scale == 'gam-small':
+    if args.model_scale == 'gam':
        model = YOLO('ultralytics/cfg/models/v8/yolov8s_GAM.yaml').load(v8_small)
      
     elif args.model_scale == 'baseline':
         model = YOLO('ultralytics/cfg/models/v8/yolov8s.yaml')
         
-    elif args.model_scale == 'cam-small':
+    elif args.model_scale == 'cam':
        model = YOLO('ultralytics/cfg/models/v8/yolov8s_CAM.yaml').load(v8_small)
        
-    elif args.model_scale == 'cbam-small':
+    elif args.model_scale == 'cbam':
         model = YOLO('ultralytics/cfg/models/v8/yolov8s_CBAM.yaml').load(v8_small)
     
-    elif args.model_scale == 'rescbam-small':
+    elif args.model_scale == 'rescbam':
         model = YOLO('ultralytics/cfg/models/v8/yolov8s_ResBlock_CBAM.yaml').load(v8_small)
 
-    elif args.model_scale == 'ela-small':
+    elif args.model_scale == 'ela':
         model = YOLO('ultralytics/cfg/models/v8/yolov8s_ELA.yaml').load(v8_small)
 
-    elif args.model_scale == 'mlca-small':
+    elif args.model_scale == 'mlca':
         model = YOLO('ultralytics/cfg/models/v8/yolov8s_MLCA.yaml').load(v8_small)
     
-    elif args.model_scale == 'sa-small':
+    elif args.model_scale == 'sa':
         model = YOLO('ultralytics/cfg/models/v8/yolov8s_SA.yaml').load(v8_small)
     
-    elif args.model_scale == 'eca-small':
+    elif args.model_scale == 'eca':
         model = YOLO('ultralytics/cfg/models/v8/yolov8s_ECA.yaml').load(v8_small)
     
     elif args.model_scale == 'yolov9':
