@@ -8,6 +8,7 @@ np.random.seed(0)
 import matplotlib.pyplot as plt
 from tqdm import trange
 from PIL import Image
+from argparse import ArgumentParser
 from ultralytics.nn.tasks import attempt_load_weights
 from ultralytics.utils.torch_utils import intersect_dicts
 from ultralytics.utils.ops import xywh2xyxy, non_max_suppression
@@ -209,7 +210,7 @@ def get_params(args):
 		'weight': args.weights,
 		'device': args.device,
 		'method': args.method, # GradCAMPlusPlus, GradCAM, XGradCAM, EigenCAM, HiResCAM, LayerCAM, RandomCAM, EigenGradCAM
-		'layer': args.layer,
+		'layer': [args.layer],
 		'backward_type': 'class', # class, box, all
 		'conf_threshold': 0.25, # 0.2
 		'ratio': 0.5, # 0.02-0.1
@@ -226,7 +227,7 @@ if __name__ == '__main__':
                         help='model checkpoint')
     parser.add_argument('--method', nargs='?', type=str, default='XGradCAM', 
                         help='attention method')
-    parser.add_argument('--layer', nargs='?', type=list(int), default=18,
+    parser.add_argument('--layer', nargs='?', type=int, default=18,
                         help='layer number')
     parser.add_argument('--input', nargs='?', type=str, default='DJI_0108.JPG',
                         help='image path')
