@@ -956,6 +956,7 @@ def parse_model(d, ch, verbose=True):  # model_dict, input_channels(3)
             C2fCIB,
             GAM_Attention,
             GCT,
+            CoordinateAttention,
             ResBlock_CBAM,
             GlobalContext,
             SqueezeExcitation,
@@ -1015,10 +1016,6 @@ def parse_model(d, ch, verbose=True):  # model_dict, input_channels(3)
             if c2 != nc:
                 c2 = make_divisible(min(c2, max_channels) * width, 8)
             args = [c1, *args[1:]]
-        
-        elif m is CoordinateAttention:
-            c1, c2 = ch[f], args[0]
-            args = [c1, c2, *args[1:]]
 
         elif m is ResNetLayer:
             c2 = args[1] if args[3] else args[1] * 4

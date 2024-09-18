@@ -551,7 +551,7 @@ import math
 import torch.nn.functional as F
 #https://github.com/wandahangFY/MLCA/blob/master/MLCA.py
 class MLCA(nn.Module):
-    """Constructs an Multi-Local Channel Attention module.
+    """Constructs an Mixed-Local Channel Attention module.
     Args:
         in_size: Number of channels of the input feature map
         kernel_size: Adaptive selection of kernel size
@@ -617,7 +617,7 @@ class h_swish(nn.Module):
 
 class CoordinateAttention(nn.Module):
     
-    """Constructs a Coordinate Attention module.
+    """Constructs the Coordinate Attention module.
     Args:
         inp: Number of channels of the input feature map
         oup: Number of channels of the output feature map
