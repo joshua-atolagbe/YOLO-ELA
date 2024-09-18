@@ -58,7 +58,7 @@ if __name__ == '__main__':
     elif args.model_scale == 'eca':
         model = YOLO('ultralytics/cfg/models/v8/yolov8s_ECA.yaml').load(v8_small)
         
-    elif args.model_scale == 'eca':
+    elif args.model_scale == 'ca':
         model = YOLO('ultralytics/cfg/models/v8/yolov8s_CA.yaml').load(v8_small)
     
     elif args.model_scale == 'yolov9':
