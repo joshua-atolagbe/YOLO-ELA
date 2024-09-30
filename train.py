@@ -11,8 +11,6 @@ if torch.cuda.is_available():
 np.random.seed(random_seed)
 
 v8_small = 'https://github.com/ultralytics/assets/releases/download/v8.2.0/yolov8s.pt'
-v9 = "https://github.com/ultralytics/assets/releases/download/v8.2.0/yolov9s.pt"
-v10 = "https://github.com/ultralytics/assets/releases/download/v8.2.0/yolov10s.pt"
 
 if __name__ == '__main__':
      
@@ -24,6 +22,8 @@ if __name__ == '__main__':
                         help='Number of epochs')
     parser.add_argument('--aug', nargs='?', type=bool, default=False,
                         help='Whether to use data augmentation.')
+    parser.add_argument('--img_sz', nargs='?', type=bool, default=int,
+                        help='Image size')
     parser.add_argument('--model_scale', nargs='?', type=str, default='ela-large',
                         help='model scale type')
     parser.add_argument('--name', nargs='?', type=str, default='yolov8',
@@ -35,7 +35,7 @@ if __name__ == '__main__':
        model = YOLO('ultralytics/cfg/models/v8/yolov8s_GAM.yaml').load(v8_small)
      
     elif args.model_scale == 'baseline':
-        model = YOLO('ultralytics/cfg/models/v8/yolov8s.yaml')
+        model = YOLO('ultralytics/cfg/models/v8/yolov8s.yaml').load(v8_small)
         
     elif args.model_scale == 'cam':
        model = YOLO('ultralytics/cfg/models/v8/yolov8s_CAM.yaml').load(v8_small)
@@ -60,12 +60,6 @@ if __name__ == '__main__':
         
     elif args.model_scale == 'ca':
         model = YOLO('ultralytics/cfg/models/v8/yolov8s_CA.yaml').load(v8_small)
-    
-    elif args.model_scale == 'yolov9':
-        model = YOLO(v9)
-
-    elif args.model_scale == 'yolov10':
-        model = YOLO(v10)
 
     model.train(
         data='ultralytics/cfg/data.yaml',
@@ -74,7 +68,7 @@ if __name__ == '__main__':
         name=args.name+'_'+args.model_scale+str(args.epochs)+'aug_'+str(args.aug),
         epochs=args.epochs,
         batch=args.bs,
-        imgsz=640,
+        imgsz=args.img_sz,
         overlap_mask=True,
         save=True,
         optimizer='SGD',
