@@ -1,3 +1,5 @@
+#slight modification after https://github.com/z1069614715/objectdetection_script/blob/master/yolo-gradcam/yolov8_heatmap.py
+
 # Import necessary packages and suppress warnings
 import warnings
 warnings.filterwarnings('ignore')
