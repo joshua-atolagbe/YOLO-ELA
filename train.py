@@ -36,22 +36,15 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     # Model selection based on the --model_scale argument
-    if args.model_scale == 'gam':
-        model = YOLO('ultralytics/cfg/models/v8/yolov8s_GAM.yaml').load(v8_small)
-    elif args.model_scale == 'baseline':
+    
+    if args.model_scale == 'baseline':
         model = YOLO('ultralytics/cfg/models/v8/yolov8s.yaml').load(v8_small)
-    elif args.model_scale == 'cam':
-        model = YOLO('ultralytics/cfg/models/v8/yolov8s_CAM.yaml').load(v8_small)
     elif args.model_scale == 'cbam':
         model = YOLO('ultralytics/cfg/models/v8/yolov8s_CBAM.yaml').load(v8_small)
-    elif args.model_scale == 'rescbam':
-        model = YOLO('ultralytics/cfg/models/v8/yolov8s_ResBlock_CBAM.yaml').load(v8_small)
     elif args.model_scale == 'ela':
         model = YOLO('ultralytics/cfg/models/v8/yolov8s_ELA.yaml').load(v8_small)
     elif args.model_scale == 'mlca':
         model = YOLO('ultralytics/cfg/models/v8/yolov8s_MLCA.yaml').load(v8_small)
-    elif args.model_scale == 'sa':
-        model = YOLO('ultralytics/cfg/models/v8/yolov8s_SA.yaml').load(v8_small)
     elif args.model_scale == 'eca':
         model = YOLO('ultralytics/cfg/models/v8/yolov8s_ECA.yaml').load(v8_small)
     elif args.model_scale == 'ca':
